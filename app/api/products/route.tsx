@@ -5,7 +5,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
     const session = await getServerSession(authOptions);
-    if(!session) return NextResponse.json({message: "You are not authorized!"}, {status: 401});
+    if(!session?.user.isAdmin) return NextResponse.json({message: "You are not authorized!"}, {status: 401});
     
     const body = await request.json();
 
