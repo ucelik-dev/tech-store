@@ -41,9 +41,7 @@ const OrdersPage = async ({ searchParams } : Props) => {
     const page = parseInt(searchParams.page) || 1;
     const pageSize = 10;
 
-    if(session?.user.isAdmin)
-      var orders = await prisma.order.findMany( { where: { }, orderBy, skip: (page - 1) * pageSize, take: pageSize }, ); 
-    else
+   
       var orders = await prisma.order.findMany( { where: { userEmail: session?.user.email??""}, orderBy, skip: (page - 1) * pageSize, take: pageSize }  ); 
 
   
