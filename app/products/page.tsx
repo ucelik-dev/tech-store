@@ -54,7 +54,7 @@ const ProductList = async ({ searchParams } : { searchParams: { category: Produc
 
               <Flex justify={'between'} align={'center'} width={'100%'} className='mb-0 mt-4 md:mt-0'>
                   <Text as="div" size="6" color="red">${product.price}</Text>
-                  <AddToCartButton product={product}/>
+                  {/*<AddToCartButton product={product}/>*/}
               </Flex>
               
             </Flex>
@@ -64,7 +64,7 @@ const ProductList = async ({ searchParams } : { searchParams: { category: Produc
        </Grid>
 
       <Flex align={'center'} justify={'between'}>
-        {/*<Pagination pageSize={pageSize} currentPage={page} itemCount={productCount}/>*/}
+        <Pagination pageSize={pageSize} currentPage={page} itemCount={productCount}/>
         <Text size={'2'}>{productCount} products</Text>
       </Flex>
        
