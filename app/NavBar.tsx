@@ -25,7 +25,7 @@ const NavBar = () => {
           <Flex gap={'3'}>
             <Link href="/">
               <Image 
-                src={'http://res.cloudinary.com/dmwprvrvw/image/upload/v1697979579/TechShop/logo_tech_shop_cropped_i7hq3f.png'}
+                src={'https://res.cloudinary.com/dmwprvrvw/image/upload/v1697979579/TechShop/logo_tech_shop_cropped_i7hq3f.png'}
                 width={20} height={20} alt="" loading="eager" priority={true} className="w-5 h-5"
               />
             </Link>
@@ -33,8 +33,8 @@ const NavBar = () => {
                 <Link className={`${ '/products' === currentPath ? "text-zinc-900" : "text-zinc-500" } hover:text-zinc-900 transition-colors`}
                   href='/products'>Products</Link>
                 {status === 'authenticated' && 
-                <Link className={`${ '/orders?orderBy=id&sortBy=desc' === currentPath ? "text-zinc-900" : "text-zinc-500" } hover:text-zinc-900 transition-colors`}
-                  href='/orders?orderBy=id&sortBy=desc'>Orders</Link>
+                <Link className={`${ '/orders' === currentPath ? "text-zinc-900" : "text-zinc-500" } hover:text-zinc-900 transition-colors`}
+                  href='/orders'>Orders</Link>
                 }
             </ul>
 
@@ -57,7 +57,7 @@ const NavBar = () => {
               //<Link href={'/api/auth/signout'}>Logout</Link>}
               <DropdownMenu.Root>
                   <DropdownMenu.Trigger className="cursor-pointer">
-                    <Avatar src={session.user?.image ? session.user?.image : 'http://res.cloudinary.com/dmwprvrvw/image/upload/v1697979579/TechShop/user-icon_eylev2.png' } fallback="" size={'2'} referrerPolicy="no-referrer"/>
+                    <Avatar src={session.user?.image ? session.user?.image : 'https://res.cloudinary.com/dmwprvrvw/image/upload/v1697979579/TechShop/user-icon_eylev2.png' } fallback="" size={'2'} referrerPolicy="no-referrer"/>
                   </DropdownMenu.Trigger>
                   <DropdownMenu.Content>
                     <DropdownMenu.Label>

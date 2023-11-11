@@ -42,7 +42,7 @@ const SignUpPage = () => {
   return (
     <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0 mt-10 sm:mt-20">
       <div className="flex items-center mb-6 text-2xl font-semibold text-gray-900">
-          <Image className="w-8 h-8 mr-2" src="http://res.cloudinary.com/dmwprvrvw/image/upload/v1697979579/TechShop/logo_tech_shop_cropped_i7hq3f.png" width={'20'} height={'20'} alt="logo" />
+          <Image className="w-8 h-8 mr-2" src="https://res.cloudinary.com/dmwprvrvw/image/upload/v1697979579/TechShop/logo_tech_shop_cropped_i7hq3f.png" width={'20'} height={'20'} alt="logo" />
           Tech Shop    
       </div>
       <div className="w-full bg-white rounded-lg shadow-2xl md:mt-0 sm:max-w-md xl:p-0">
