@@ -13,24 +13,19 @@ const ProductList = async ({ searchParams } : { searchParams: { category: Produc
 
   const page = parseInt(searchParams.page) || 1;
   const pageSize = 8;
-  /*
+  
   if(searchParams.category === 'Other'){
     var products = await prisma.product.findMany({ where: { id: { not: 0 }, title: { contains: searchParams.search } }, skip: (page - 1) * pageSize, take: pageSize });
   } else {
     var products = await prisma.product.findMany({ where: { category: searchParams.category, title: { contains: searchParams.search } }, skip: (page - 1) * pageSize, take: pageSize });
   }
-
+/*
   if(searchParams.category === 'Other'){
     var productCount = await prisma.product.count({where: { id: { not: 0 }, title: { contains: searchParams.search } }})
   } else {
     var productCount = await prisma.product.count({where: { category: searchParams.category, title: { contains: searchParams.search } }})
   }
 */
-
-  var products = await prisma.product.findMany({ where: { id: { not: 0 }, title: { contains: searchParams.search } }, skip: (page - 1) * pageSize, take: pageSize });
-
-  var productCount = await prisma.product.count({where: { category: searchParams.category, title: { contains: searchParams.search } }})
-
   return (
     <Flex direction='column' gap='3'>
       
@@ -65,8 +60,8 @@ const ProductList = async ({ searchParams } : { searchParams: { category: Produc
        </Grid>
 
       <Flex align={'center'} justify={'between'}>
-        <Pagination pageSize={pageSize} currentPage={page} itemCount={productCount}/>
-        <Text size={'2'}>{productCount} products</Text>
+        <Pagination pageSize={pageSize} currentPage={page} itemCount={10}/>
+        <Text size={'2'}>{10} products</Text>
       </Flex>
        
 
