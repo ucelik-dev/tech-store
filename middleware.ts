@@ -5,7 +5,6 @@ export const config = {
     matcher: [
         '/products/new',
         '/products/edit/:id+',
-        '/orders',
-        '/orders/:id+'
+
     ]
 }
