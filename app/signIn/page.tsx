@@ -44,7 +44,7 @@ const SignInPage = () => {
                       <input type="password" placeholder="Password" { ...register('password')} className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" />
                       {errors.password && <p className='text-red-500'>{errors.password.message?.toString()}</p>}
                   </div>
-                  <Button type="submit" size={'3'} className="w-full">Sign in</Button>
+                  <button type="submit" className="w-full text-md text-white bg-blue-600 font-medium text-sm !px-6 !py-5 text-center">Sign in</button>
                   {error && <Badge color='red' size={'2'} className='w-full'>{error}</Badge>}
 
                   <p className="text-sm font-light text-gray-500">
