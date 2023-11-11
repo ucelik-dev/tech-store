@@ -55,7 +55,7 @@ const ProductForm = ({product}: { product?: Product}) => {
 
           if(file) {
             const url = await upload();
-            const res = await fetch("http://localhost:3000/api/products/" + product.id, {
+            const res = await fetch("/api/products/" + product.id, {
               method: "PATCH",
               body: JSON.stringify({
                 imgUrl: url,
@@ -71,7 +71,7 @@ const ProductForm = ({product}: { product?: Product}) => {
             router.push(`/products/${data.id}`);
             router.refresh();
           } else {
-            const res = await fetch("http://localhost:3000/api/products/" + product.id, {
+            const res = await fetch("/api/products/" + product.id, {
               method: "PATCH",
               body: JSON.stringify({
                 title: formdata.title,
@@ -91,7 +91,7 @@ const ProductForm = ({product}: { product?: Product}) => {
           
         } else {
           const url = await upload();
-          const res = await fetch("http://localhost:3000/api/products", {
+          const res = await fetch("/api/products", {
             method: "POST",
             body: JSON.stringify({
               imgUrl: url,
