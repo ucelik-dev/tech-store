@@ -8,7 +8,7 @@ import NextLink from "next/link";
 import UpdateOrderStatus from "./UpdateOrderStatus";
 import formatDate from "../utils/formatDate";
 import { Order, OrderStatus } from "@prisma/client";
-import { ArrowDownIcon, ArrowUpIcon } from "@radix-ui/react-icons";
+import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
 import Pagination from "../components/Pagination";
 import OrderSummary from "./OrderSummary";
 import { Metadata } from "next";
@@ -62,9 +62,9 @@ const OrdersPage = async ({ searchParams } : Props) => {
               {columns.map(column => (
                 <Table.ColumnHeaderCell key={column.value} className={column.className}>
                   <Flex gap={'2'}>
-                    <div><NextLink href={{ query: {...searchParams, orderBy: column.value, sortBy:'asc'}}}><ArrowUpIcon /></NextLink></div>
+                    <div><NextLink href={{ query: {...searchParams, orderBy: column.value, sortBy:'asc'}}}><AiOutlineArrowUp /></NextLink></div>
                     <div><NextLink href={{ query: {...searchParams, orderBy: column.value}}}>{column.label}</NextLink></div>
-                    <div><NextLink href={{ query: {...searchParams, orderBy: column.value, sortBy:'desc'}}}><ArrowDownIcon /></NextLink></div>
+                    <div><NextLink href={{ query: {...searchParams, orderBy: column.value, sortBy:'desc'}}}><AiOutlineArrowDown /></NextLink></div>
                       { /*column.value === searchParams.orderBy && <ArrowUpIcon /> */}
                     </Flex>
                 </Table.ColumnHeaderCell>
