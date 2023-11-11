@@ -33,7 +33,7 @@ const ProductList = async ({ searchParams } : { searchParams: { category: Produc
   return (
     <Flex direction='column' gap='3'>
       
-      <ProductActions />
+      {/*<ProductActions />*/}
 
       <Grid columns={{ initial:"1", sm:"3", md:"4" }} gap="3" width="auto">
       {products.map((product) => (
