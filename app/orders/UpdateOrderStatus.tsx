@@ -19,7 +19,7 @@ const UpdateOrderStatus = ({ order }: { order: OrderType }) => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>, id: string) => {
     e.preventDefault();
 
-    const res = await fetch("http://localhost:3000/api/orders/" + order.id, {
+    const res = await fetch("/api/orders/" + order.id, {
       method: "PUT",
       body: JSON.stringify({
         status: selectStatus,
