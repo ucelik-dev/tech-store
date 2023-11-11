@@ -1,15 +1,16 @@
 'use client'
 
 import { Badge, Button } from '@radix-ui/themes'
-import { redirect } from 'next/navigation';
+import { redirect, useRouter } from 'next/navigation';
 import { FieldValues, useForm } from 'react-hook-form';
 import { signIn, useSession } from 'next-auth/react';
 import { useState } from 'react';
 import Image from 'next/image'
 
 const SignInPage = () => {
+  const router = useRouter();
   const {data:session} = useSession();
-  if(session) { redirect('/products') }
+  if(session) { router.push('/products') }
 
   const { register, handleSubmit, formState: {isSubmitting, errors} } = useForm();
   const [error, setError] = useState('');

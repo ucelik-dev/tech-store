@@ -4,6 +4,7 @@ import { Avatar, Badge, Button, Container, DropdownMenu, Flex, Text } from "@rad
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React, { useEffect } from "react";
 import Skeleton from "./components/Skeleton";
 import { useCartStore } from "./utils/store";
@@ -12,6 +13,7 @@ import formatCurrency from "./utils/formatCurrency";
 
 const NavBar = () => {
   const { totalItems, totalPrice } = useCartStore();
+  const currentPath = usePathname();
   const { status, data: session } = useSession();
 
   useEffect(() => { useCartStore.persist.rehydrate() },[]);
@@ -27,7 +29,14 @@ const NavBar = () => {
                 width={20} height={20} alt="" loading="eager" priority={true} className="w-5 h-5"
               />
             </Link>
-          
+            <ul className="flex gap-6">
+                <Link className={`${ '/products' === currentPath ? "text-zinc-900" : "text-zinc-500" } hover:text-zinc-900 transition-colors`}
+                  href='/products'>Products</Link>
+                {status === 'authenticated' && 
+                <Link className={`${ '/orders?orderBy=id&sortBy=desc' === currentPath ? "text-zinc-900" : "text-zinc-500" } hover:text-zinc-900 transition-colors`}
+                  href='/orders?orderBy=id&sortBy=desc'>Orders</Link>
+                }
+            </ul>
 
             
           </Flex>

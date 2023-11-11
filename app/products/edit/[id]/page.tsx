@@ -4,12 +4,7 @@ import prisma from '@/prisma/client';
 import { notFound } from "next/navigation";
 import { Metadata } from 'next';
 
-const ProductForm = dynamic(
-  () => import('@/app/products/ProductForm'),
-  { 
-    ssr: false,
-  }
-);
+const ProductForm = dynamic( () => import('@/app/products/ProductForm'), { ssr: false } );
 
 const EditProductPage = async ({ params }: {params: { id: string }}) => {
   const product = await prisma.product.findUnique({
