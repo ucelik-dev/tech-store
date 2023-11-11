@@ -4,7 +4,6 @@ import { PrismaAdapter } from "@next-auth/prisma-adapter"
 import prisma from "@/prisma/client";
 import { NextAuthOptions, User } from "next-auth";
 import { compare } from 'bcryptjs'
-import { NextResponse } from "next/server";
 
 declare module "next-auth" {
     interface Session {

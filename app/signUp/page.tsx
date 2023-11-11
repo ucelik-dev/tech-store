@@ -11,12 +11,11 @@ import { useState } from 'react';
 import Image from 'next/image'
 
 const SignUpPage = () => {
-  const router = useRouter();
   const {data:session} = useSession();
-  if(session) { router.push('/products') }
+  if(session) { redirect('/products') }
   
   const { register, handleSubmit, formState: {isSubmitting, errors} } = useForm({resolver: zodResolver(SignUpFormSchema)});
-  
+  const router = useRouter();
   const [error, setError] = useState('');
 
   const onSubmit = async (formdata: FieldValues) => {
