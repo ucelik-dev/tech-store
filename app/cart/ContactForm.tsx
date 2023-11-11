@@ -29,7 +29,7 @@ const ContactForm = ({openContact, setOpenContact} : Props) => {
       router.push("/"); 
     } else {
       try {
-        const res = await fetch("http://localhost:3000/api/orders", {
+        const res = await fetch("/api/orders", {
           method: "POST",
           body: JSON.stringify({
             price: totalPrice,
