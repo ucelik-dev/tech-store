@@ -1,13 +1,16 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 import { Metadata } from 'next'
+import RouteProtectionAuthorized from '@/app/components/RouteProtectionAuthorized'
 
 const ProductForm = dynamic(() => import('@/app/products/ProductForm'), {ssr: false})
 
 const NewProductPage = () => {
   
   return (
-    <ProductForm />
+    <RouteProtectionAuthorized>
+      <ProductForm />
+    </RouteProtectionAuthorized>
   )
 }
 

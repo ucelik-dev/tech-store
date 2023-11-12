@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import prisma from '@/prisma/client';
 import { notFound } from "next/navigation";
 import { Metadata } from 'next';
+import RouteProtectionAuthorized from '@/app/components/RouteProtectionAuthorized';
 
 const ProductForm = dynamic( () => import('@/app/products/ProductForm'), { ssr: false } );
 
@@ -14,7 +15,10 @@ const EditProductPage = async ({ params }: {params: { id: string }}) => {
   if (!product) notFound();
   
   return (
-    <ProductForm product={product}/>
+    <RouteProtectionAuthorized>
+      <ProductForm product={product}/>
+    </RouteProtectionAuthorized>
+    
   )
 }
 

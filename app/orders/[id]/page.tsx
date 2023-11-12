@@ -7,6 +7,7 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '@/app/auth/authOptions';
 import formatCurrency from '@/app/utils/formatCurrency';
 import formatDate from '@/app/utils/formatDate';
+import RouteProtectionUnauthorized from '@/app/components/RouteProtectionUnauthorized';
 
 const OrderDetail = async ({params}: {params: { id: string}}) => {
     const session = await getServerSession(authOptions);
@@ -19,6 +20,7 @@ const OrderDetail = async ({params}: {params: { id: string}}) => {
     if (!order) notFound();
 
   return (
+    <RouteProtectionUnauthorized>
     <div className='flex flex-col lg:flex-row gap-3'>
         <div className='w-full'>
         <Table.Root className="w-full" variant='surface'>
@@ -97,7 +99,8 @@ const OrderDetail = async ({params}: {params: { id: string}}) => {
     </Table.Root>
   </div>
       
-    </div>
+</div>
+</RouteProtectionUnauthorized>
   )
 }
 

@@ -12,6 +12,7 @@ import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
 import Pagination from "../components/Pagination";
 import OrderSummary from "./OrderSummary";
 import { Metadata } from "next";
+import RouteProtectionUnauthorized from "../components/RouteProtectionUnauthorized";
 
 export interface OrderQuery {
   orderBy: keyof Order;
@@ -54,6 +55,7 @@ const OrdersPage = async ({ searchParams } : Props) => {
     const cancelled = await prisma.order.count({ where: { status: 'Cancelled' } });
 
   return (
+  <RouteProtectionUnauthorized>
     <Flex direction='column' gap='3'>
       <OrderSummary delivered={delivered} being_prepared={being_prepared} cancelled={cancelled}/>
       <Table.Root variant="surface">
@@ -108,6 +110,7 @@ const OrdersPage = async ({ searchParams } : Props) => {
       </Flex>
 
     </Flex>
+  </RouteProtectionUnauthorized>
   );
 };
 
