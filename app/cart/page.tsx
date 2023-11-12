@@ -25,9 +25,4 @@ const CartPage = () => {
   )
 }
 
-export const metadata: Metadata = {
-  title: 'Tech Store - Shopping Cart',
-  description: 'View the Shopping Cart'
-}
-
 export default CartPage
