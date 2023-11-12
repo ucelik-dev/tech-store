@@ -115,7 +115,7 @@ const OrdersPage = async ({ searchParams } : Props) => {
 };
 
 export const metadata: Metadata = {
-  title: 'Tech Shop - Order List',
+  title: 'Tech Store - Order List',
   description: 'View list of orders'
 }
 

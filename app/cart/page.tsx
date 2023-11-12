@@ -5,6 +5,7 @@ import '../globals.css'
 import ProductsDetails from './ProductsDetails';
 import PaymentDetails from './PaymentDetails';
 import ContactForm from './ContactForm';
+import { Metadata } from 'next';
 
 const CartPage = () => {
   const [openContact, setOpenContact] = useState(false);
@@ -22,6 +23,11 @@ const CartPage = () => {
         }
     </div>
   )
+}
+
+export const metadata: Metadata = {
+  title: 'Tech Store - Shopping Cart',
+  description: 'View the Shopping Cart'
 }
 
 export default CartPage

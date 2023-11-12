@@ -23,7 +23,7 @@ const EditProductPage = async ({ params }: {params: { id: string }}) => {
 }
 
 export const metadata: Metadata = {
-  title: 'Tech Shop - Update Product',
+  title: 'Tech Store - Update Product',
   description: 'Update details of the product'
 }
 

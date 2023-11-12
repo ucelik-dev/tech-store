@@ -15,7 +15,7 @@ const NewProductPage = () => {
 }
 
 export const metadata: Metadata = {
-  title: 'Tech Shop - Add New Product',
+  title: 'Tech Store - Add New Product',
   description: 'Add a new product to the store'
 }
 

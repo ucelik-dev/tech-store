@@ -70,7 +70,7 @@ const ProductList = async ({ searchParams } : { searchParams: { category: Produc
 }
 
 export const metadata: Metadata = {
-  title: 'Tech Shop - Products',
+  title: 'Tech Store - Products',
   description: 'View all products'
 }
 

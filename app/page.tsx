@@ -7,6 +7,6 @@ export default function Home() {
 }
 
 export const metadata: Metadata = {
-  title: 'Tech Shop',
+  title: 'Tech Store',
   description: 'An amazing technology store'
 }
