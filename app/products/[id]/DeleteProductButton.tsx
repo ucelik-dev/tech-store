@@ -43,10 +43,10 @@ const DeleteProductButton = ({ productId }: { productId: number }) => {
           </AlertDialog.Description>
           <Flex mt="4" gap="3" justify="end">
             <AlertDialog.Cancel>
-              <Button variant="soft" color="gray">Cancel</Button>
+              <button className="hover:cursor-pointer text-gray-700 bg-gray-200 hover:bg-gray-300 opacity-70 font-medium rounded-md text-sm px-4 py-1.5 text-center inline-flex gap-2 items-center me-2 mb-2">Cancel</button>
             </AlertDialog.Cancel>
             <AlertDialog.Action>
-              <Button color="red" onClick={deleteProduct}>Delete</Button>
+              <button className="hover:cursor-pointer text-white bg-red-600 hover:bg-red-700 opacity-80 font-medium rounded-md text-sm px-4 py-1.5 text-center inline-flex gap-2 items-center me-2 mb-2" onClick={deleteProduct}>Delete</button>
             </AlertDialog.Action>
           </Flex>
         </AlertDialog.Content>
