@@ -1,14 +1,13 @@
 import { BsPencilSquare } from 'react-icons/bs';
-import { Button } from '@radix-ui/themes';
 import Link from 'next/link';
 
 const EditProductButton = ({ productId }: { productId: number }) => {
   return (
     <Link href={`/products/edit/${productId}`}>
-      <Button className='hover:cursor-pointer'>
+      <button className=' bg-blue-600 text-white hover:cursor-pointer' >
         <BsPencilSquare />
         Edit
-      </Button>
+      </button>
     </Link>
   );
 };

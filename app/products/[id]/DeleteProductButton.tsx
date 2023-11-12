@@ -31,10 +31,10 @@ const DeleteProductButton = ({ productId }: { productId: number }) => {
     <>
       <AlertDialog.Root>
         <AlertDialog.Trigger>
-          <Button color="red" disabled={isDeleting} className='hover:cursor-pointer'>
+          <button disabled={isDeleting} className='bg-red-600 text-white hover:cursor-pointer'>
             <BsTrash3 />
             Delete {isDeleting && <Spinner />}
-          </Button>
+          </button>
         </AlertDialog.Trigger>
         <AlertDialog.Content>
           <AlertDialog.Title>Confirm Deletion</AlertDialog.Title>
