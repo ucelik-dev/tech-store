@@ -5,7 +5,6 @@ import '../globals.css'
 import ProductsDetails from './ProductsDetails';
 import PaymentDetails from './PaymentDetails';
 import ContactForm from './ContactForm';
-import { Metadata } from 'next';
 
 const CartPage = () => {
   const [openContact, setOpenContact] = useState(false);

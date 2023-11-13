@@ -49,15 +49,15 @@ const OrdersPage = async ({ searchParams } : Props) => {
 
   
     const orderCount = await prisma.order.count()
-
+    
     const delivered = await prisma.order.count({ where: { status: 'Delivered' } });
     const being_prepared = await prisma.order.count({ where: { status: 'Being_Prepared' } });
     const cancelled = await prisma.order.count({ where: { status: 'Cancelled' } });
-
+    
   return (
   <RouteProtectionUnauthorized>
     <Flex direction='column' gap='3'>
-      <OrderSummary delivered={delivered} being_prepared={being_prepared} cancelled={cancelled}/>
+      {session?.user.isAdmin && <OrderSummary delivered={delivered} being_prepared={being_prepared} cancelled={cancelled}/> }
       <Table.Root variant="surface">
         <Table.Header>
           <Table.Row className="text-left">
@@ -92,10 +92,10 @@ const OrdersPage = async ({ searchParams } : Props) => {
                       <UpdateOrderStatus order={order}/>
                     </td>
                   ) : (
-                    <td className="py-6 px-3">
-                      {order.status === OrderStatus.Being_Prepared && <Badge color="orange" size={'2'}>{order.status}</Badge>}
-                      {order.status === OrderStatus.Delivered && <Badge color="green" size={'2'}>{order.status}</Badge>}
-                      {order.status === OrderStatus.Cancelled && <Badge color="red" size={'2'}>{order.status}</Badge>}
+                    <td className="py-3 px-3">
+                      {order.status === OrderStatus.Being_Prepared && <Badge color="orange" size={'1'}>{order.status}</Badge>}
+                      {order.status === OrderStatus.Delivered && <Badge color="green" size={'1'}>{order.status}</Badge>}
+                      {order.status === OrderStatus.Cancelled && <Badge color="red" size={'1'}>{order.status}</Badge>}
                     </td>
                   )}
      

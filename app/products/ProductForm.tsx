@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FieldValues, useForm } from "react-hook-form";
 import SimpleMDE from "react-simplemde-editor";
-import Spinner from "../components/Spinner";
+import SpinnerButton from "../components/SpinnerButton";
 import { categories } from "../utils/store";
 import toast from "react-hot-toast";
 import { ProductFormSchema } from "../validationSchemas";
@@ -148,7 +148,7 @@ const ProductForm = ({product}: { product?: Product}) => {
         <SimpleMDE value={product?.details} placeholder="Product details..." onChange={(value: string) => setDetails(value)} />
 
         <Button disabled={isSubmitting}>
-          {product ? 'Update Product':'Add New Product'} {isSubmitting && <Spinner/>}</Button>
+          {product ? 'Update Product':'Add New Product'} {isSubmitting && <SpinnerButton/>}</Button>
       </form>
     </div>
   );

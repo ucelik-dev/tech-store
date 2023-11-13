@@ -5,7 +5,7 @@ import { BsTrash3 } from 'react-icons/bs';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import Spinner from '@/app/components/Spinner';
+import SpinnerButton from '@/app/components/SpinnerButton';
 import toast from 'react-hot-toast';
 
 const DeleteProductButton = ({ productId }: { productId: number }) => {
@@ -33,7 +33,7 @@ const DeleteProductButton = ({ productId }: { productId: number }) => {
         <AlertDialog.Trigger>
           <button disabled={isDeleting} type="button" className="hover:cursor-pointer text-white bg-red-600 hover:bg-red-700 opacity-80 font-medium rounded-md text-sm px-4 py-1.5 text-center inline-flex gap-2 items-center me-2 mb-2">
             <BsTrash3 />
-            Delete {isDeleting && <Spinner />}
+            Delete {isDeleting && <SpinnerButton />}
           </button>
         </AlertDialog.Trigger>
         <AlertDialog.Content>
