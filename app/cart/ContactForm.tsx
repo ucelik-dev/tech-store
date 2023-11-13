@@ -12,12 +12,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { countryType } from "../utils/types";
 import { ContactFormSchema } from "../validationSchemas";
 
-interface Props {
-  openContact: Boolean, 
-  setOpenContact: React.Dispatch<React.SetStateAction<boolean>>,
-}
-
-const ContactForm = ({openContact, setOpenContact} : Props) => {
+const ContactForm = () => {
   const {products, totalPrice, totalItems, emptyCart} = useCartStore();
   const {data: session} = useSession();
   const router = useRouter();
@@ -61,23 +56,25 @@ const ContactForm = ({openContact, setOpenContact} : Props) => {
 }
 
 
-  if (openContact) {
-    const fetchCountries = async () => {
-      return fetch("https://countriesnow.space/api/v0.1/countries")
-        .then((res) => res.json())
-        .then((d) => setCountryList(d.data));
-    };
-    fetchCountries();
-  }
+
+  const fetchCountries = async () => {
+    return fetch("https://countriesnow.space/api/v0.1/countries")
+      .then((res) => res.json())
+      .then((d) => setCountryList(d.data));
+  };
+  fetchCountries();
+  
 
   const { register, handleSubmit, formState: {errors} } = useForm({resolver: zodResolver(ContactFormSchema)});
 
   return (
     
-    <div className="flex h-[100vh-5rem] p-4 pt-3 flex-col gap-4 rounded-xl border-2 shadow-md">
+    <div className='flex h-max p-4 pt-3 flex-col gap-4 border-2 lg:w-1/2 w-full rounded-xl shadow-md'>
+      <h1 className="p-1 font-bold pb-0">Contact</h1>
+      <Separator orientation="horizontal" size={"4"} className="mb-2"/>
+      
       <form onSubmit={handleSubmit(onSubmit)}>
-      <h1 className="p-1 font-bold">Contact Information</h1>
-      <Separator orientation="horizontal" size={"4"} />
+  
       <Flex direction="column" gap={"3"}>
         <Flex gap={"2"} direction={'column'}>
           <input
@@ -135,7 +132,6 @@ const ContactForm = ({openContact, setOpenContact} : Props) => {
 
 
         <Flex direction={{ initial: "column", sm: "row" }} justify={"center"} gap={'4'}>
-          <Button onClick={() => setOpenContact(false)}>Go Back</Button>
           <Button disabled={totalItems === 0}>Complete Your Order</Button>
         </Flex>
         
