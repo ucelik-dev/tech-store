@@ -144,7 +144,7 @@ const ContactForm = () => {
 
 
         <Flex direction={{ initial: "column", sm: "row" }} justify={"center"} gap={'4'}>
-          <Button disabled={totalItems === 0} className="dark:bg-gray-200 dark:text-black">Complete Your Order</Button>
+          {(totalItems>0 && session) && <Button disabled={totalItems === 0} className="dark:bg-gray-200 dark:text-black">Complete Your Order</Button>}
         </Flex>
         
       </Flex>
