@@ -15,7 +15,7 @@ const AppThemeSwitcher = () => {
     return (
         <div>
             {theme === 'dark' && <button onClick={() => setTheme("light")} className='border rounded-full p-1 bg-white text-black'><MdLightMode/></button>}
-            {theme === 'light' && <button onClick={() => setTheme("dark")} className='border rounded-full p-1 bg-black text-white'><MdModeNight/></button>}
+            {(theme === 'light' || theme === 'system') && <button onClick={() => setTheme("dark")} className='border rounded-full p-1 bg-black text-white'><MdModeNight/></button>}
         </div>
     )
 }

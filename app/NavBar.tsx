@@ -10,7 +10,7 @@ import Skeleton from "./components/Skeleton";
 import { useCartStore } from "./utils/store";
 import { BiCart } from 'react-icons/bi'
 import formatCurrency from "./utils/formatCurrency";
-import ThemeSwitcher from "./theme/AppThemeSwitcher";
+import AppThemeSwitcher from "./theme/AppThemeSwitcher";
 
 const NavBar = () => {
   const { totalItems, totalPrice } = useCartStore();
@@ -54,7 +54,7 @@ const NavBar = () => {
               <span className="font-bold">{formatCurrency(totalPrice)}</span>
             </Link>
 
-            <ThemeSwitcher/>
+            <AppThemeSwitcher/>
 
             { status === "authenticated" && (
               //<Link href={'/api/auth/signout'}>Logout</Link>}
