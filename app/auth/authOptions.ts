@@ -7,7 +7,7 @@ import { compare } from 'bcryptjs'
 
 declare module "next-auth" {
     interface Session {
-        user: User & { isAdmin: Boolean, name: string }
+        user: User & { isAdmin: Boolean, activeTheme: string }
     }
 }
 

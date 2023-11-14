@@ -9,7 +9,7 @@ import Image from 'next/image'
 
 const SignInPage = () => {
   const {data:session} = useSession();
-  if(session) { redirect('/products') }
+  if(session) { redirect('/products?category=Other') }
 
   const { register, handleSubmit, formState: {isSubmitting, errors} } = useForm();
   const [error, setError] = useState('');
@@ -26,13 +26,9 @@ const SignInPage = () => {
 
   return (
     <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0 mt-10 sm:mt-20">
-      <div className="flex items-center mb-6 text-2xl font-semibold text-gray-900">
-          <Image className="w-8 h-8 mr-2" src="https://res.cloudinary.com/dmwprvrvw/image/upload/v1697979579/TechShop/logo_tech_shop_cropped_i7hq3f.png" width={'20'} height={'20'} alt="logo" />
-          Tech Shop    
-      </div>
-      <div className="w-full bg-white rounded-lg shadow-2xl md:mt-0 sm:max-w-md xl:p-0">
+      <div className="w-full bg-white dark:bg-gray-400 rounded-lg shadow-2xl md:mt-0 sm:max-w-md xl:p-0">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-              <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
+              <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-gray-700">
                   Sign in to your account
               </h1>
               <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit(onSubmit)}>
@@ -44,10 +40,10 @@ const SignInPage = () => {
                       <input type="password" placeholder="Password" { ...register('password')} className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" />
                       {errors.password && <p className='text-red-500'>{errors.password.message?.toString()}</p>}
                   </div>
-                  <button type="submit" className="w-full text-md text-white rounded-lg bg-blue-600 font-medium !px-2 !py-2.5 text-center">Sign in</button>
+                  <button type="submit" className="w-full text-md text-white rounded-lg bg-blue-600 font-medium !px-2 !py-2.5 text-center dark:bg-gray-200 dark:text-black">Sign in</button>
                   {error && <Badge color='red' size={'2'} className='w-full'>{error}</Badge>}
 
-                  <p className="text-sm font-light text-gray-500">
+                  <p className="text-sm font-light text-gray-500 dark:text-gray-700">
                       You dont have an account yet? <a href="/signUp" className="font-medium text-primary-600 underline">Sign Up</a>
                   </p>
 

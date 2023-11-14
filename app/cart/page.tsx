@@ -11,7 +11,7 @@ const CartPage = () => {
 
   return (
     <div className='h-full flex flex-col lg:flex-col gap-4'>
-      <Heading align={'center'} color='indigo' className='italic'>Shopping Cart</Heading>
+      <Heading align={'center'} className='italic mb-3'>Shopping Cart</Heading>
       <div className='h-full flex flex-col lg:flex-row gap-4'>
         <ProductsDetails openContact={openContact} setOpenContact={setOpenContact}/>
         <ContactForm />

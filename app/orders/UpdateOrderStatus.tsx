@@ -39,16 +39,17 @@ const UpdateOrderStatus = ({ order }: { order: OrderType }) => {
         >
         
         <select
-          className={`px-1.5 py-1.3 sm:p-1.5 ring-1 ring-red-100 rounded-md w-full !cursor-pointer
-                ${order.status === OrderStatus.Delivered && "bg-green-50"}
-                ${order.status === OrderStatus.Being_Prepared && "bg-orange-50"}
-                ${order.status === OrderStatus.Cancelled && "bg-red-50"}
+          className={`px-1.5 py-1.3 sm:p-1.5 rounded-md w-full !cursor-pointer outline-none text-white
+                ${order.status === OrderStatus.Delivered && " bg-green-500 "}
+                ${order.status === OrderStatus.Being_Prepared && "bg-orange-500 "}
+                ${order.status === OrderStatus.Cancelled && "bg-red-500 "}
           `}
           onChange={handleChange}
         >
             <option value={order.status}>{order.status === OrderStatus.Being_Prepared ? 'Being Prepared' : order.status }</option>
-            {orderStatusOptions.map((opt) => opt !== order.status ? <option value={opt} key={opt}>{opt}</option> : '')}
+            {orderStatusOptions.map((opt) => opt !== order.status ? <option value={opt} key={opt}>{opt === 'Being_Prepared' ? 'Being Prepared' : opt}</option> : '')}
         </select>
+        
         <button 
               className={`p-1.5 rounded-full
                 ${order.status === OrderStatus.Delivered && "bg-green-500"}
@@ -56,7 +57,8 @@ const UpdateOrderStatus = ({ order }: { order: OrderType }) => {
                 ${order.status === OrderStatus.Cancelled && "bg-red-500"}
               `}
               type='submit'
-              ><AiFillSave color="white" size={20}/></button>
+              ><AiFillSave color="white" size={20}/>
+        </button>
     </form>
   );
 };

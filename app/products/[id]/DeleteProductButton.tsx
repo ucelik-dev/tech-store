@@ -31,7 +31,7 @@ const DeleteProductButton = ({ productId }: { productId: number }) => {
     <>
       <AlertDialog.Root>
         <AlertDialog.Trigger>
-          <button disabled={isDeleting} type="button" className="hover:cursor-pointer text-white bg-red-600 hover:bg-red-700 opacity-80 font-medium rounded-md text-sm px-4 py-1.5 text-center inline-flex gap-2 items-center me-2 mb-2">
+          <button disabled={isDeleting} type="button" className="hover:cursor-pointer text-white bg-red-600 hover:bg-red-700 opacity-80 dark:opacity-100 font-medium rounded-md text-sm px-4 py-1.5 text-center inline-flex gap-2 items-center me-2 mb-2">
             <BsTrash3 />
             Delete {isDeleting && <SpinnerButton />}
           </button>

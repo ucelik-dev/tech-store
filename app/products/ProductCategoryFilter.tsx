@@ -21,10 +21,10 @@ const ProductCategoryFilter = () => {
         router.push('/products?' + params);
       }}
     >
-      <Select.Trigger placeholder="Select category" className='w-full sm:w-auto'/>
-      <Select.Content>
+      <Select.Trigger placeholder="Select category" className='w-full sm:w-auto dark:bg-gray-200 dark:text-black'/>
+      <Select.Content className='dark:bg-gray-200 dark:text-black'>
         {categories.map((category) => (
-          <Select.Item
+          <Select.Item className='dark:hover:bg-black'
             key={category.text}
             value={category.value || ' '}
           >

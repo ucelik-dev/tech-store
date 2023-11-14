@@ -55,7 +55,7 @@ const ProductDetail = async ({params}: {params: { id: string}}) => {
         </Flex>
 
         <Flex justify={'between'} className='mt-5'>
-            <Text as="div" size="8" color="red">
+            <Text as="div" size="8" color="red" className='dark:text-gray-200'>
             ${product.price}
             </Text>
             <AddToCartButton product={product}/>

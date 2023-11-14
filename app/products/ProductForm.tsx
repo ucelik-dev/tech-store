@@ -135,7 +135,7 @@ const ProductForm = ({product}: { product?: Product}) => {
         {errors.price && <p color="red">{errors.price.message?.toString()}</p>}
 
         <select id="category" { ...register('category')}  defaultValue={product?.category}
-            className="block w-full rounded-md border-0 p-1.5 text-gray-900 ring-1 ring-inset ring-gray-300  border-gray-300 text-sm">
+            className="block w-full rounded-md p-1.5 text-sm ring-1 ring-gray-300 !outline-none dark:bg-black">
               <option value={product?.category}>{product?.category}</option>
               {categories.filter((opt) => (opt.value !== product?.category && opt.value !== 'Other')).map(option => (
                 <option key={option.value} value={option.value}>
@@ -147,7 +147,7 @@ const ProductForm = ({product}: { product?: Product}) => {
 
         <SimpleMDE value={product?.details} placeholder="Product details..." onChange={(value: string) => setDetails(value)} />
 
-        <Button disabled={isSubmitting}>
+        <Button disabled={isSubmitting} className="dark:bg-gray-200 dark:text-black">
           {product ? 'Update Product':'Add New Product'} {isSubmitting && <SpinnerButton/>}</Button>
       </form>
     </div>

@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { useCartStore } from "../utils/store";
-import { Button, Flex, Separator } from "@radix-ui/themes";
+import { Button, Flex, Separator, TextArea, TextField } from "@radix-ui/themes";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
@@ -77,21 +77,26 @@ const ContactForm = () => {
   
       <Flex direction="column" gap={"3"}>
         <Flex gap={"2"} direction={'column'}>
-          <input
-            type="text"
-            placeholder="First name"
-            className="block w-full rounded-md border-0 p-1.5 text-gray-900 ring-1 ring-inset ring-gray-300  border-gray-300 text-sm"
-            id="firstName" { ...register('firstName')} 
-          />
+          <TextField.Root>
+            <TextField.Input
+              type="text"
+              placeholder="First name"
+              className="block w-full rounded-md border-0 p-1.5 text-sm"
+              id="firstName" { ...register('firstName')} 
+            />
+          </TextField.Root>
           {errors.firstName && <span className="text-sm text-red-500">{errors.firstName.message?.toString()}</span>}
-          <input
-            placeholder="Last name"
-            className="block w-full rounded-md border-0 p-1.5 text-gray-900 ring-1 ring-inset ring-gray-300  border-gray-300 text-sm"
-            id="lastName" { ...register('lastName')} 
-          />
+          <TextField.Root>
+            <TextField.Input
+               placeholder="Last name"
+               className="block w-full rounded-md border-0 p-1.5 text-sm"
+               id="lastName" { ...register('lastName')} 
+            />
+          </TextField.Root>
           {errors.lastName && <span className="text-sm text-red-500">{errors.lastName.message?.toString()}</span>}
+          
           <select
-            className="block w-full rounded-md border-0 p-1.5 text-gray-900 ring-1 ring-inset ring-gray-300  border-gray-300 text-sm"
+            className="block w-full rounded-md border-0 p-1.5 text-sm ring-1 ring-gray-300 !outline-none dark:bg-black"
             id="country" { ...register('country')} 
           >
             <option value="">Select Country</option>
@@ -102,29 +107,36 @@ const ContactForm = () => {
             ))}
           </select>
           {errors.country && <span className="text-sm text-red-500">{errors.country.message?.toString()}</span>}
-          <input
-            placeholder="City"
-            className="block w-full rounded-md border-0 p-1.5 text-gray-900 ring-1 ring-inset ring-gray-300  border-gray-300 text-sm"
-            id="city" { ...register('city')} 
-          />
+          
+          <TextField.Root>
+            <TextField.Input
+               placeholder="City"
+               className="block w-full rounded-md border-0 p-1.5 text-sm"
+               id="city" { ...register('city')} 
+            />
+          </TextField.Root>
           {errors.city && <span className="text-sm text-red-500">{errors.city.message?.toString()}</span>}
-          <input
-            placeholder="Postal code"
-            className="block w-full rounded-md border-0 p-1.5 text-gray-900 ring-1 ring-inset ring-gray-300  border-gray-300 text-sm"
-            id="postalCode" { ...register('postalCode')} 
-          />
+          <TextField.Root>
+            <TextField.Input
+                placeholder="Postal code"
+                className="block w-full rounded-md border-0 p-1.5 text-sm"
+                id="postalCode" { ...register('postalCode')} 
+            />
+          </TextField.Root>
           {errors.postalCode && <span className="text-sm text-red-500">{errors.postalCode.message?.toString()}</span>}
-          <input
-            type='number'
-            placeholder="Phone number"
-            className="block w-full rounded-md border-0 p-1.5 text-gray-900 ring-1 ring-inset ring-gray-300  border-gray-300 text-sm"
-            id="phone" { ...register('phone')} 
-          />
+          <TextField.Root>
+            <TextField.Input
+                type='number'
+                placeholder="Phone number"
+                className="block w-full rounded-md border-0 p-1.5 text-sm"
+                id="phone" { ...register('phone')} 
+            />
+          </TextField.Root>
           {errors.phone && <span className="text-sm text-red-500">{errors.phone.message?.toString()}</span>}
-          <textarea
+          <TextArea 
             rows={4}
             placeholder="Address"
-            className="block w-full rounded-md border-0 p-1.5 text-gray-900 ring-1 ring-inset ring-gray-300  border-gray-300 text-sm"
+            className="block w-full rounded-md border-0 p-1.5 text-sm"
             id="address" { ...register('address')} 
           />
           {errors.address && <span className="text-sm text-red-500">{errors.address.message?.toString()}</span>}
@@ -132,7 +144,7 @@ const ContactForm = () => {
 
 
         <Flex direction={{ initial: "column", sm: "row" }} justify={"center"} gap={'4'}>
-          <Button disabled={totalItems === 0}>Complete Your Order</Button>
+          <Button disabled={totalItems === 0} className="dark:bg-gray-200 dark:text-black">Complete Your Order</Button>
         </Flex>
         
       </Flex>

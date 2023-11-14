@@ -22,7 +22,7 @@ const ProductActions = () => {
       </div>
 
       <div className='sm:flex sm:flex-1 sm:justify-end'>
-      {session?.user.isAdmin && <Link href="/products/new"><Button className='hover:cursor-pointer w-full'>Add New Product</Button></Link>}
+      {session?.user.isAdmin && <Link href="/products/new"><Button className='hover:cursor-pointer w-full dark:bg-gray-200 dark:text-black'>Add New Product</Button></Link>}
       </div>
     </Flex>
   )

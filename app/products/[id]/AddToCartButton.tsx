@@ -13,7 +13,7 @@ const AddToCartButton = ({ product }: { product: Product }) => {
 
   return (
     <Button
-      className="hover:cursor-pointer"
+      className="hover:cursor-pointer dark:bg-gray-200 dark:text-black"
       size="2"
       onClick={() => {
         addToCart({
