@@ -25,7 +25,6 @@ const NavBar = () => {
   const currentPath = usePathname();
   const { status, data: session } = useSession();
   const [isMenuOpen, setIsMenuOpen] = useState(false); 
-  const theme = localStorage.getItem("theme");
 
   useEffect(() => { useCartStore.persist.rehydrate() },[]);
 
