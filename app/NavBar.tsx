@@ -47,7 +47,7 @@ const NavBar = () => {
               ? <MdClose size={'30'} onClick={() => setIsMenuOpen(!isMenuOpen)} className="!flex md:!hidden"/> 
               : <RxHamburgerMenu size={'30'} onClick={() => setIsMenuOpen(!isMenuOpen)} className="!flex md:!hidden"/>}
             
-            <Link href="/"> 
+            <Link href="/" onClick={() => setIsMenuOpen(false)}> 
               <Image 
                 src={'https://res.cloudinary.com/dmwprvrvw/image/upload/v1697979579/TechShop/tech-store-logo_fnuwwb.png'}
                 width={110} height={20} alt="" loading="eager" priority={true} className="w-15 h-7"
@@ -65,7 +65,7 @@ const NavBar = () => {
           </Flex>
 
           <Flex justify={'between'} align={'center'} gap={'5'} position={'relative'}>
-            <Link href="/cart" className="flex items-center gap-2 min-w-max">
+            <Link href="/cart" className="flex items-center gap-2 min-w-max" onClick={() => setIsMenuOpen(false)}>
               <BiCart size={25}/>
               
               <Badge variant="solid" radius="full"
@@ -106,7 +106,7 @@ const NavBar = () => {
             { status === "unauthenticated" && 
               <div>
                 <Link href={'/signIn'}>
-                  <Button radius="large" className="dark:bg-gray-200 dark:text-black !cursor-pointer">Login</Button>
+                  <Button radius="large" className="dark:bg-gray-200 dark:text-black !cursor-pointer" onClick={() => setIsMenuOpen(false)}>Login</Button>
                 </Link>
               </div>}
             { status === "loading" && <Skeleton width={'2rem'} height={'1.75rem'}/> }
@@ -129,11 +129,13 @@ const NavBar = () => {
                   href='/orders' onClick={() => setIsMenuOpen(false)}>ORDERS</Link>
                 }
                 <Separator orientation="horizontal" size={"4"}/>
+                
           </Flex>
 
           <Flex className="px-5 mb-2" justify={'between'} direction={'column'} gap={'2'}>
-              <Link href={'/api/auth/signout'} className="flex justify-center align-center gap-2 text-black bg-gray-200 px-2 py-1 rounded-md !cursor-pointer"><MdLogout size={'23'} />Logout</Link>  
-              <Link href={'/profile'} onClick={() => setIsMenuOpen(false)} className="flex justify-center align-center gap-2 text-black bg-gray-200 px-2 py-1 rounded-md !cursor-pointer"><FaUser size={'20'} />My Profile</Link>  
+              {session && <Link href={'/api/auth/signout'} className="flex justify-center align-center gap-2 text-black bg-gray-200 px-2 py-1 rounded-md !cursor-pointer"><MdLogout size={'23'} />Logout</Link> } 
+              {session && <Link href={'/profile'} onClick={() => setIsMenuOpen(false)} className="flex justify-center align-center gap-2 text-black bg-gray-200 px-2 py-1 rounded-md !cursor-pointer"><FaUser size={'20'} />My Profile</Link> }
+              
               <Flex align={'center'} gap={'2'} justify={'center'} className="text-black bg-gray-200 px-2 py-1 rounded-md">Change Theme <AppThemeSwitcher/></Flex>
               <Flex align={'center'} gap={'2'} justify={'center'} className="text-black bg-gray-200 px-2 py-1 rounded-md"><IoIosCall />+383 45 665 889</Flex>
               <Flex align={'center'} gap={'2'} justify={'center'} className="text-black bg-gray-200 px-2 py-1 rounded-md"><MdEmail />info@techstore.com</Flex>
