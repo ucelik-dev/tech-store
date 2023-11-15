@@ -9,6 +9,7 @@ import DeleteProductButton from './DeleteProductButton';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/app/auth/authOptions';
 import AddToCartButton from './AddToCartButton';
+import formatCurrency from '@/app/utils/formatCurrency';
 
 const ProductDetail = async ({params}: {params: { id: string}}) => {
     const session = await getServerSession(authOptions);
@@ -56,7 +57,7 @@ const ProductDetail = async ({params}: {params: { id: string}}) => {
 
         <Flex justify={'between'} className='mt-5'>
             <Text as="div" size="8" color="red" className='dark:text-gray-200'>
-            ${product.price}
+            {formatCurrency(product.price)}
             </Text>
             <AddToCartButton product={product}/>
         </Flex>

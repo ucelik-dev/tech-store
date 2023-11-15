@@ -12,7 +12,7 @@ const ProductActions = () => {
 
   return (
 
-    <Flex justify={'between'} direction={{ initial:'column', xs:'column', sm:'row'}} gap={{ initial:'2'}}>
+    <Flex justify={'between'} direction={{ initial:'column', sm:'row'}} gap={{ initial:'2'}}>
       <div className='sm:flex sm:flex-1 sm:justify-start'>
           <ProductCategoryFilter />
       </div>

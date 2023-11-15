@@ -22,7 +22,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <AppThemeProvider>
             <Theme accentColor="indigo">
               <NavBar />
-              <main className='px-5 py-20 h-[500px] mt-2'>
+              <main className='px-5 py-20 h-[500px] mt-4 md:mt-12'>
                 <Container className='pb-5'>
                   {children}
                   <Toaster position="bottom-right" reverseOrder={true} 

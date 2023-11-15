@@ -8,6 +8,7 @@ import AddToCartButton from './[id]/AddToCartButton';
 import Pagination from '../components/Pagination';
 import { ProductCategory } from '@prisma/client';
 import { Metadata } from 'next';
+import formatCurrency from '../utils/formatCurrency';
 
 const ProductList = async ({ searchParams } : { searchParams: { category: ProductCategory, page: string, search: string }}) => {
 
@@ -49,7 +50,7 @@ const ProductList = async ({ searchParams } : { searchParams: { category: Produc
               </Flex>
 
               <Flex justify={'between'} align={'center'} width={'100%'} className='mb-0 mt-4 md:mt-0'>
-                  <Text as="div" size="6" className="text-red-600 dark:text-gray-200">${product.price}</Text>
+                  <Text as="div" size="6" className="text-red-600 dark:text-gray-200">{formatCurrency(product.price)}</Text>
                   <AddToCartButton product={product}/>
               </Flex>
               

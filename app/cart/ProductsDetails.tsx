@@ -16,7 +16,7 @@ interface Props {
 const ProductsDetails = ({ openContact, setOpenContact } : Props) => {
   const {products, removeFromCart, increaseQuantity, decreaseQuantity, totalPrice, totalItems} = useCartStore();
   useEffect(() => { useCartStore.persist.rehydrate() },[]);
-  const deliveryCost = (totalPrice>50 || totalItems === 0) ? 0 : 5;
+  const deliveryCost = (totalPrice>=100 || totalItems === 0) ? 0 : 5;
   
   return (
     <div className='flex h-max p-4 pt-3 flex-col gap-4 border-2 lg:w-1/2 w-full rounded-xl shadow-md'>

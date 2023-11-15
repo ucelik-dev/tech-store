@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useCartStore } from "../utils/store";
 import { Button, Flex, Separator, TextArea, TextField } from "@radix-ui/themes";
 import toast from "react-hot-toast";
@@ -53,18 +53,16 @@ const ContactForm = () => {
       }
 
     }
-}
-
-
+  }
 
   const fetchCountries = async () => {
     return fetch("https://countriesnow.space/api/v0.1/countries")
       .then((res) => res.json())
       .then((d) => setCountryList(d.data));
   };
-  fetchCountries();
-  
 
+  useEffect(() => { fetchCountries() },[])
+  
   const { register, handleSubmit, formState: {errors} } = useForm({resolver: zodResolver(ContactFormSchema)});
 
   return (
