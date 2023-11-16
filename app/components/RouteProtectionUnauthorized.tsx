@@ -12,7 +12,7 @@ const RouteProtectionUnauthorized = ({ children }: any) => {
         if (!session) {
             router.push('/products');
         }
-    }, []);
+    }, [session, router]);
 
     return <>{children}</>;
 };

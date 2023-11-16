@@ -116,8 +116,8 @@ const NavBar = () => {
     </nav>
 
     {isMenuOpen && 
-      <section className="flex md:hidden absolute z-50 bg-blue-600 w-full  h-max mt-[3.5rem]">
-        <Flex direction={'column'} justify={"between"} className=" min-w-full"> 
+      <section className="flex md:hidden absolute z-50 bg-blue-600 w-full h-max mt-[3.5rem] pb-7">
+        <Flex direction={'column'} justify={"between"} className="min-w-full"> 
 
           <Flex className="gap-6 px-5 mt-5 mb-10 w-full text-gray-200" direction={'column'}>
                <Link className='text-sm transition-colors font-bold'
@@ -132,6 +132,7 @@ const NavBar = () => {
                 <Link className='text-sm transition-colors font-bold'
                   href='/users' onClick={() => setIsMenuOpen(false)}>USERS</Link>
                 }
+                <Separator orientation="horizontal" size={"4"}/>
                 
           </Flex>
 

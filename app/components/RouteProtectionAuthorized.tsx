@@ -12,7 +12,7 @@ const RouteProtectionAuthorized = ({ children }: any) => {
         if (!session?.user.isAdmin) {
             router.push('/products');
         }
-    }, [session]);
+    }, [session, router]);
 
     return <>{children}</>;
 };
