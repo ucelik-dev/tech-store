@@ -1,5 +1,5 @@
 import { ZodType, z } from 'zod';
-import { ContactFormData, ProductFormData, SignUpFormData } from './utils/types';
+import { ContactFormData, ProductFormData, SignUpFormData } from './types/types';
 
 export const issueSchema = z.object({
     title: z.string().min(1).max(255),
@@ -14,8 +14,12 @@ export const ProductFormSchema: ZodType<ProductFormData> = z.object({
 
 export const SignUpFormSchema: ZodType<SignUpFormData> = z.object({
   name: z.string().min(1, {message: 'Full name is required.'}),
-  email: z.string().min(1, {message: 'Email is required.'}),
-  password: z.string().min(6, {message: 'Password must be at least 6 characters.'}),
+  email: z.string().min(1, {message: 'Email is required.'}).email("This is not a valid email!"),
+  password: z.string().regex(new RegExp(".*[A-Z].*"), "At least one uppercase character!")
+  .regex(new RegExp(".*[a-z].*"), "At least one lowercase character!")
+  .regex(new RegExp(".*\\d.*"), "At least one number!")
+  .regex(new RegExp(".*[`~<>?,./!@#$%^&*()\\-_+=\"'|{}\\[\\];:\\\\].*"), "At least one special character!")
+  .min(8, "Must contain at least 8 characters."),
 });
 
 export const ContactFormSchema: ZodType<ContactFormData> = z.object({

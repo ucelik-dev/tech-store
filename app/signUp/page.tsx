@@ -1,14 +1,13 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Badge, Button } from '@radix-ui/themes'
+import { Badge } from '@radix-ui/themes'
 import { redirect, useRouter } from 'next/navigation';
 import { FieldValues, useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { SignUpFormSchema } from '../validationSchemas';
 import { useSession } from 'next-auth/react';
 import { useState } from 'react';
-import Image from 'next/image'
 
 const SignUpPage = () => {
   const {data:session} = useSession();

@@ -1,7 +1,7 @@
 import toast from "react-hot-toast";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { ActionTypes, CartType } from "./types";
+import { ActionTypes, CartType } from "../types/types";
 
 export const categories = [
   {value: 'Other', text: 'All'},

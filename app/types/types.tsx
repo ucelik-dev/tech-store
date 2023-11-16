@@ -22,6 +22,13 @@ export type OrderType = {
   createdAt: Date;
 };
 
+export type UserType = {
+  id: number;
+  name: string;
+  email: number;
+  isAdmin: boolean;
+};
+
 export type ActionTypes = {
   addToCart: (item: CartItemType) => void;
   removeFromCart: (item: CartItemType) => void;
@@ -29,8 +36,6 @@ export type ActionTypes = {
   increaseQuantity: (item: CartItemType) => void;
   decreaseQuantity: (item: CartItemType) => void;
 };
-
-export type countryType = { country: String };
 
 export type ContactFormData = {
   firstName: string;

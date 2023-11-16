@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { AiFillSave } from 'react-icons/ai';
 import { toast } from 'react-hot-toast';
 import { OrderStatus } from "@prisma/client";
-import { OrderType } from '../utils/types';
+import { OrderType } from '../types/types';
 
 const UpdateOrderStatus = ({ order }: { order: OrderType }) => {
   const [selectStatus, setSelectStatus] = useState(order.status);

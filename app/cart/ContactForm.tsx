@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useCartStore } from "../utils/store";
 import { Button, Flex, Separator, TextArea, TextField } from "@radix-ui/themes";
 import toast from "react-hot-toast";
@@ -9,14 +9,13 @@ import { useSession } from "next-auth/react";
 import { FieldValues, useForm } from "react-hook-form";
 import { OrderStatus } from "@prisma/client";
 import { zodResolver } from '@hookform/resolvers/zod';
-import { countryType } from "../utils/types";
 import { ContactFormSchema } from "../validationSchemas";
+import countries from '@/app/data/countries.json';
 
 const ContactForm = () => {
   const {products, totalPrice, totalItems, emptyCart} = useCartStore();
   const {data: session} = useSession();
   const router = useRouter();
-  const [countryList, setCountryList] = useState<countryType[]>([]);
 
   const onSubmit = async (formdata: FieldValues) => {
   
@@ -54,14 +53,6 @@ const ContactForm = () => {
 
     }
   }
-
-  const fetchCountries = async () => {
-    return fetch("https://countriesnow.space/api/v0.1/countries")
-      .then((res) => res.json())
-      .then((d) => setCountryList(d.data));
-  };
-
-  useEffect(() => { fetchCountries() },[])
   
   const { register, handleSubmit, formState: {errors} } = useForm({resolver: zodResolver(ContactFormSchema)});
 
@@ -98,9 +89,9 @@ const ContactForm = () => {
             id="country" { ...register('country')} 
           >
             <option value="">Select Country</option>
-            {countryList.map((c: any, index) => (
-              <option value={c.country} key={index}>
-                {c.country}
+            {countries.map((c, index) => (
+              <option value={c.name} key={index}>
+                {c.name}
               </option>
             ))}
           </select>

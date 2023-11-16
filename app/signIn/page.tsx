@@ -5,7 +5,6 @@ import { redirect } from 'next/navigation';
 import { FieldValues, useForm } from 'react-hook-form';
 import { signIn, useSession } from 'next-auth/react';
 import { useState } from 'react';
-import Image from 'next/image'
 
 const SignInPage = () => {
   const {data:session} = useSession();

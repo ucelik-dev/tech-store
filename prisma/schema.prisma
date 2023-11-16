@@ -64,7 +64,7 @@ enum ProductCategory {
 
 model Account {
   id                String  @id @default(cuid())
-  userId            String
+  userId            Int
   type              String
   provider          String
   providerAccountId String
@@ -84,15 +84,15 @@ model Account {
 model Session {
   id           String   @id @default(cuid())
   sessionToken String   @unique
-  userId       String
+  userId       Int
   expires      DateTime
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model User {
-  id            String    @id @default(cuid())
+  id        Int      @id @default(autoincrement())
   name          String?
-  email         String?   @unique
+  email         String   @unique
   emailVerified DateTime?
   password      String?
   createdAt     DateTime @default(now())

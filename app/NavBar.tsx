@@ -61,6 +61,10 @@ const NavBar = () => {
                 <Link className={`${ '/orders' === currentPath ? "font-bold" : "font-normal" } text-sm transition-colors`}
                   href='/orders'>ORDERS</Link>
                 }
+                {session?.user.isAdmin && 
+                <Link className={`${ '/users' === currentPath ? "font-bold" : "font-normal" } text-sm transition-colors`}
+                  href='/users' onClick={() => setIsMenuOpen(false)}>USERS</Link>
+                }
             </ul>
           </Flex>
 
@@ -88,13 +92,8 @@ const NavBar = () => {
                       <DropdownMenu.Label>
                         <Text size={'2'}>{session.user!.name} <br/> {session.user!.email}</Text>
                       </DropdownMenu.Label>
-                      <Link href={'/profile'}>
-                        <DropdownMenu.Item className="mt-3 dark:hover:bg-gray-200 dark:hover:text-black !cursor-pointer">
-                          My Profile
-                        </DropdownMenu.Item>
-                      </Link>
                       <Link href={'/api/auth/signout'}>
-                        <DropdownMenu.Item className="dark:hover:bg-gray-200 dark:hover:text-black !cursor-pointer">
+                        <DropdownMenu.Item className="dark:hover:bg-gray-200 dark:hover:text-black !cursor-pointer mt-2">
                           Logout
                         </DropdownMenu.Item>
                       </Link>
@@ -129,12 +128,15 @@ const NavBar = () => {
                   href='/orders' onClick={() => setIsMenuOpen(false)}>ORDERS</Link>
                 }
                 <Separator orientation="horizontal" size={"4"}/>
+                {session?.user.isAdmin && 
+                <Link className='text-sm transition-colors font-bold'
+                  href='/users' onClick={() => setIsMenuOpen(false)}>USERS</Link>
+                }
                 
           </Flex>
 
           <Flex className="px-5 mb-2" justify={'between'} direction={'column'} gap={'2'}>
               {session && <Link href={'/api/auth/signout'} className="flex justify-center align-center gap-2 text-black bg-gray-200 px-2 py-1 rounded-md !cursor-pointer"><MdLogout size={'23'} />Logout</Link> } 
-              {session && <Link href={'/profile'} onClick={() => setIsMenuOpen(false)} className="flex justify-center align-center gap-2 text-black bg-gray-200 px-2 py-1 rounded-md !cursor-pointer"><FaUser size={'20'} />My Profile</Link> }
               
               <Flex align={'center'} gap={'2'} justify={'center'} className="text-black bg-gray-200 px-2 py-1 rounded-md">Change Theme <AppThemeSwitcher/></Flex>
               <Flex align={'center'} gap={'2'} justify={'center'} className="text-black bg-gray-200 px-2 py-1 rounded-md"><IoIosCall />+383 45 665 889</Flex>
