@@ -32,11 +32,7 @@ const UserTable = async ({ searchParams, columns, users } : Props) => {
         <Table.Body>
           {users.map((user:any) => (
             <Table.Row key={user.id} className="border-b-2 border-gray-100">
-              <td className="py-3 px-3">
-                <NextLink href={`/users/${user.id}`} passHref legacyBehavior>
-                  <RadixLink>{user.id}</RadixLink>
-                </NextLink>
-              </td>
+              <td className="py-3 px-3">{user.id}</td>
               <td className="py-3 px-3">{user.name}</td>
               <td className="py-3 px-3">{user.email}</td>
               <td className="py-3 px-3"><UpdateUserStatus user={user}/></td>
