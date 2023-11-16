@@ -17,10 +17,10 @@ interface Props {
   searchParams: UserQuery,
 }
 
-const columns : { label: string, value: keyof User, className?: string }[] = [
+const columns : { label: string, value: keyof User }[] = [
   { label: 'ID', value: 'id' },
   { label: 'Name', value: 'name' },
-  { label: 'Email', value: 'email', className: "hidden md:table-cell" },
+  { label: 'Email', value: 'email' },
   { label: 'Role', value: 'isAdmin' },
 ];
 

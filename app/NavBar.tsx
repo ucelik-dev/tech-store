@@ -116,7 +116,7 @@ const NavBar = () => {
     </nav>
 
     {isMenuOpen && 
-      <section className="flex md:hidden absolute z-50 bg-blue-600 w-full  h-[calc(100vh-4.5rem)] mt-[3.5rem]">
+      <section className="flex md:hidden absolute z-50 bg-blue-600 w-full  h-max mt-[3.5rem]">
         <Flex direction={'column'} justify={"between"} className=" min-w-full"> 
 
           <Flex className="gap-6 px-5 mt-5 mb-10 w-full text-gray-200" direction={'column'}>
